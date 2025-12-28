@@ -8,6 +8,7 @@ def playgame():
      print("Start guessing and I will say higher or lower.\n")
 
      # "secret_num" defines what the computer chooses as its number
+     # between 1 and 500
      secret_num = random.randint(1, 500)
      # "attempts" is a placeholder for the starting number of guesses the user has
      attempts = 0
