@@ -86,7 +86,7 @@ def calculategoal():
      Slow Cut       |       Preserve muscle, while losing fat.
      Recomp         |       Build muscle, while losing fat.
      Lean Bulk      |       Slow muscle gain, limited fat gain.
-     Dirty Bulk     |       Quick muslce and fat gain.\n
+     Dirty Bulk     |       Quick muscle and fat gain.\n
      
           """)
           plan = input("Look at the table above and enter your goal here: ").lower()
