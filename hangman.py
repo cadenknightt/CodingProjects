@@ -4,12 +4,6 @@ from wonderwords import RandomWord
 # Main game function
 def hangman_game():
      print("\nWelcome to Hangman!")
-     rules = """\nTHE RULES:
-- Guess the word correctly to win.
-- You lose 1 life for incorrect letter guesses.
-- You lose 2 lives for incorrect word guesses.
-"""
-     print(rules)
 
      # Computer chooses the word
      d = RandomWord()
@@ -17,11 +11,11 @@ def hangman_game():
      while word is None or not word.isalpha():
            word = d.word()
 
-     # Sets up the user-friendly display 
+     # These attributes help the user know what words and letters have been guessed, and the starting number for lives left
      word = word.upper()
      guessed_letters = set()
      guessed_words = set()
-     lives = 6
+     lives = 5
 
      hangman_stages = ["""
      -----------|
@@ -70,28 +64,21 @@ def hangman_game():
      ^          |
    _/ \_        |
                 |
-     """,
-     f"""
-  GAME OVER
-  The word was: {word}
      """
      ]
 
-     # While lives are greater than 0 display the appropriate hangman visual and display
+     # While lives are greater than 0 display the appropriate hangman visual and word display
      while lives > 0:
-          print(hangman_stages[6-lives])
+          print(hangman_stages[5-lives])
 
           display = ' '.join([char if char in guessed_letters else '_' for char in word])
-          print(f"   {display}\n")
+          print(f"    {display}\n")
           print(f"LIVES REMAINING: {lives}")
           print(f"GUESSED LETTERS: {', '.join(sorted(guessed_letters)).upper() or 'NONE YET'}")
           print(f"GUESSED WORDS: {', '.join(sorted(guessed_words)).upper() or 'NONE YET'}\n")
-          print(word)
 
-          # If the word is guessed, provide a cheerful statement
           if all(char in guessed_letters for char in word):
-               print(f"Yay! You correctly guessed the word! The word was: '{word}'.")
-               return
+               break
 
           # Run the main loop to play the game
           while True:
@@ -159,25 +146,33 @@ def hangman_game():
                     print("Please enter 'letter'/'l', or 'word'/'w'.\n")
                     continue
      
-     # Run this when the game is won (0 lives)
-     if lives == 0:
-          # If guessed word is the word
-          if word in guessed_words:
-               final_hangman = hangman_stages[6].format(word.upper())
-               print(final_hangman)
-               print("Congratualtions!")
-          # If there are no lives and the word is incorrect
-          else:
-               print("You lost. Better luck next time.")
+     # Options for when the word is correctly guessed or lost (0 lives)
+     if word in guessed_words or all(char in guessed_letters for char in word):
+          print(f"""             
+|--------------------------------------------------------------
+|    Yay! You correctly guessed the word!
+|    The word was: {word}  
+|--------------------------------------------------------------
+""")
+     else:
+          print(hangman_stages[5])
+          print(f"""             
+|--------------------------------------------------------------
+|    You lost. Better luck next time.
+|    The word was: {word}      
+|--------------------------------------------------------------
+""")
 
      # When the game is over, ask if the user wants to play again
      while True:
-          playagain = input("\nWould you like to play again? (y/n): ")
-          if playagain != "yes" and playagain != "y":
-               print("\nThanks for playing!")
+          playagain = input("Would you like to play again? (y/n): ").strip().lower()
+          if playagain in ["yes", "y"]:
+               hangman_game()
+          elif playagain in ["no", "n"]:
+               print("Thanks for playing!\n")
                break
-          break
-          
+          else:
+               print("Please enter 'y' for yes or 'n' for no.\n")
 
 if __name__ == "__main__":
      hangman_game()
