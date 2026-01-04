@@ -3,7 +3,7 @@ import random
 
 # Main guess the number game function
 def guess_the_number_game():
-     print("\nWELCOME TO GUESS THE NUMBER/n")
+     print("\nWELCOME TO GUESS THE NUMBER!")
      print("- I am thinking of a number from 1 and 400.")
      print("- Guess a nunber and I will say higher or lower.\n")
 
@@ -33,7 +33,7 @@ def guess_the_number_game():
 
      # When the game is over, ask if the user wants to play again.
      while True:
-          playagain = input("Would you like to play again? (y/n): ").strip().lower()
+          playagain = input("\nWould you like to play again? (y/n): ").strip().lower()
           if playagain in ["yes", "y"]:
                guess_the_number_game()
           elif playagain in ["no", "n"]:
