@@ -3,7 +3,7 @@ from wonderwords import RandomWord
 
 # Main hangman game function
 def hangman_game():
-     print("\nWELCOME TO HANGMAN!\n")
+     print("\nWELCOME TO HANGMAN!")
      print("- Fill in the empty spaces with letters or words to win.")
      print("- Wrong letters take 1 life and wrong words cost 2 lives.")
 
