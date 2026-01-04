@@ -3,7 +3,9 @@ from wonderwords import RandomWord
 
 # Main hangman game function
 def hangman_game():
-     print("\nWelcome to Hangman!")
+     print("\nWELCOME TO HANGMAN!\n")
+     print("- Fill in the empty spaces with letters or words to win.")
+     print("- Wrong letters take 1 life and wrong words cost 2 lives.")
 
      # Computer chooses a word from the word generator
      d = RandomWord()
