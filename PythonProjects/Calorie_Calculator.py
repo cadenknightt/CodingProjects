@@ -1,5 +1,5 @@
 # Main Calorie Calcualtion function.
-def calculate_calorie_goal():
+def calculate_calories():
      print("\nWelcome to the Calorie Goal Calculator!\n")
      print("I will give you some prompts to fill in and you will\nbe given the essential information for your fitness journey!\n")
 
@@ -257,7 +257,7 @@ def calculate_calorie_goal():
           calculate_again = input("\nWould you like to calculate again? (y/n): ").lower()
           # Re-run program if yes:
           if calculate_again in ["yes", "y"]:
-               calculate_calorie_goal()
+               calculate_calories()
           # Quit if no:
           elif calculate_again in ["no", "n"]:
                print("Thanks for playing!\n")
@@ -267,4 +267,4 @@ def calculate_calorie_goal():
                print("Please enter 'y' for yes or 'n' for no.\n")
 
 if __name__ == "__main__":
-     calculate_calorie_goal()
+     calculate_calories()
