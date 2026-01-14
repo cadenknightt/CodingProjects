@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body, html {
+     margin: 0;
+     padding: 0;
+     display: grid;
+     height: 100%;
+     place-items: center;
+     width: 100%;
+}
+body {
+     background-color: #f3faff;
+}
+::placeholder {
+     color: #25a1ff55;
+}
+.container {
+     position: relative;
+     display: grid;
+     height: 14em;
+     width: 40em;
+     max-width: 40em;
+     background-color: white;
+     place-items: center;
+     box-shadow: 0 0 10px #25a1ff5b;
+     border-radius: 30px;
+     grid-template-rows: 0 35% 0% 80%;
+     transition: .2s ease;
+}
+/* --- WARNING/ERROR STATE --- */
+.containerWarning {
+     height: 17em;
+     grid-template-rows: 15% 35% 0% 55%;
+     transition: .2s ease;
+}
+/* --- SUCCESS STATE --- */
+.containerUpdate {
+     height: 28em;
+     grid-template-rows: 0 25% 50% 25%;
+     transition: .2s ease;
+}
+#randomButton {
+     position: absolute;
+     place-items: center;
+     bottom: 10%;
+     background-color: #25a2ffff;
+     border: 2px solid #00000016;;
+     padding: 8px 35px;
+     border-radius: 10px;
+     font-size: 25px;
+     color: white;
+     font-family:'Fira Sans Extra Condensed';
+     font-weight: 800;
+     z-index: 10;
+}
+#randomButton:hover {
+     cursor: pointer;
+     background-color: white;
+     border-color: #25a2ff20;
+     color: #25a2ffff;
+     font-weight: 700;
+     transition: .1s ease;
+     
+}
+#randomNumber {
+     position: absolute;
+     place-items: center;
+     bottom: 17%;
+     font-family: 'Smooch Sans';
+     font-weight: 800;
+     font-size: 12em;
+     margin: auto;
+     color: #041727ff;
+     transition: .2s ease;
+     letter-spacing: -6px;
+}
+#gridContainerLayout {
+     display: grid;
+     grid-template-columns: 100%;
+     place-items: center;
+     width: 50%;
+     height: fit-content;
+     gap: 50px;
+     place-items: center;
+}
+.numLabel {
+     font-family: 'Fira Sans Condensed';
+     color: #041727ff;
+     font-weight: 800;
+     font-size: 25px;
+     user-select: none;
+}
+#min_maxValues {
+     display: grid;
+     place-items: center;
+     grid-template-columns: 50% 50%;
+}
+.inputContainer {
+     display: grid;
+     place-items: center;
+     width: 15em;
+     height: 30px;
+     grid-template-columns: 100%;
+}
+#maxNumber, #minNumber {
+     padding: 0px -20px;
+     border: 2px solid #25a2ff20;
+     font-family: 'Smooch Sans';
+     color: #25a2ff;
+     font-weight: 600;
+     font-size: 35px;
+     text-align: center;
+     border-radius: 10px;
+     z-index: 9;
+     text-size-adjust: 20px;
+}
+/* --- WARNING LABEL WHEN ERROR IN JAVASCRIPT CODE --- */
+.messageBoxVisible {
+     background-color: #da200b;
+     border: 2px solid #00000016;
+     padding: 8px 0px;
+     border-radius: 30px 30px 0 0;
+     color: white;
+     font-family: 'Smooch Sans';
+     transition: .2s ease;
+     font-size: 28px;
+     font-weight: 800;
+     width: 99.5%;
+     text-align: center;
+}
