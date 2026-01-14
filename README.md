@@ -3,7 +3,7 @@ Here you are able to access the many projects I have been working on with Python
 
 <h2>Recent Projects</h2>  
 
-[Random Number Generator](WebProjects/RandomNumber) -- [Hangman Game](PythonProjects/Hangman_Game.py) -- [Guess the Number Game](PythonProjects/Guess_The_Number_Game.py) -- [Calorie Calculator](PythonProjects/Calorie_Calculator.py)
+[Random Number Generator](Web_Dev_Projects/Random_Number_Generator) -- [Hangman Game](Python_Projects/Hangman_Game.py) -- [Guess the Number Game](Python_Projects/Guess_The_Number_Game.py) -- [Calorie Calculator](Python_Projects/Calorie_Calculator.py)
 
 <h2>Upcoming Projects</h2>  
 Web-based Calculator | Web-based Encrypted Password Manager | Christian Faith Assistant
