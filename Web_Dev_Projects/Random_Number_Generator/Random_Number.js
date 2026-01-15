@@ -75,7 +75,7 @@ const randomNumber = () => {
      // If MIN is smaller than MAX:
      if (min > max) {
           if (messageBox) {
-               messageBox.textContent = `'MIN' MUST BE SMALLER THAN '${max}'`;
+               messageBox.textContent = `CHANGE '${min}' TO A NUMBER SMALLER THAN '${max}'`;
                messageBox.classList.add('messageBoxVisible');
           }
           if (container) container.classList.add('containerWarning');
