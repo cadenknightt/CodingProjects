@@ -10,20 +10,21 @@
      <div id="gridContainerLayout">
           <div class="container">
                <span class="messageBox"></span>
-               <div id="min_maxValues">
+               <div class="min_maxValues">
                     <div class="inputContainer">
                          <label for="minNumber" class="numLabel">MIN</label>
-                         <input type="text" id="minNumber" placeholder="0" min="-99999" max="99999">
+                         <input type="text" id="minNumber" placeholder="-" inputmode="numeric">
                     </div>
                     <div class="inputContainer">
                          <label for="maxNumber" class="numLabel">MAX</label>
-                         <input type="text" id="maxNumber" placeholder="0" min="-99999" max="99999">
+                         <input type="text" id="maxNumber" placeholder="-" inputmode="numeric">
                     </div>
                </div>
           <span id="randomNumber"></span>
           <button id="randomButton" onclick="randomNumber()">GENERATE NUMBER</button>
           </div>
      </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
      <script src="randomNumber.js"></script>
 </body>
 </html>
