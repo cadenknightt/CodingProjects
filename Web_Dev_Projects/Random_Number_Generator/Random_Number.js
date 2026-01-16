@@ -1,8 +1,11 @@
-// Generates random number
+// Global variables:
+const minInput = document.querySelector('#minNumber');
+const maxInput = document.querySelector('#maxNumber');
+const generatorButton = document.querySelector('#randomButton');
+
+// Generates random number:
 const randomNumber = () => {
      // Get elements for number generator:
-     const minInput = document.getElementById('minNumber');
-     const maxInput = document.getElementById('maxNumber');
      const messageBox = document.querySelector('.messageBox');
      const result = document.querySelector('#gridContainerLayout .randomNumber');
      const container = document.querySelector('#gridContainerLayout .container');
@@ -39,7 +42,7 @@ const randomNumber = () => {
 
      if (isNaN(min) || isNaN(max)) {
           if (messageBox) {
-               messageBox.textContent = "VALUES MUST BE NUMBERS";
+               messageBox.textContent = "VALUES MUST BE VALID NUMBERS";
                messageBox.classList.add('messageBoxVisible');
           }
           if (container) container.classList.add('containerWarning');
@@ -49,9 +52,9 @@ const randomNumber = () => {
      }
 
      // If length of both MIN and MAX are greater than 99999:
-     if (min > 99999 || max > 99999) {
+     if (min > 100000 || max > 100000) {
           if (messageBox) {
-               messageBox.textContent = "VALUES MUST BE SMALLER THAN '99,999'";
+               messageBox.textContent = "VALUES MUST BE LESS THAN 99,999";
                messageBox.classList.add('messageBoxVisible');
           }
           if (container) container.classList.add('containerWarning');
@@ -61,9 +64,9 @@ const randomNumber = () => {
      }
 
      // If length of both MIN and MAX are less than -99999:
-     if (min < -99999 || max < -99999) {
+     if (min < -100000 || max < -100000) {
           if (messageBox) {
-               messageBox.textContent = "VALUES MUST BE GREATER THAN '-99,999'";
+               messageBox.textContent = "VALUES MUST BE GREATER THAN -99,999";
                messageBox.classList.add('messageBoxVisible');
           }
           if (container) container.classList.add('containerWarning');
@@ -75,7 +78,7 @@ const randomNumber = () => {
      // If MIN is smaller than MAX:
      if (min > max) {
           if (messageBox) {
-               messageBox.textContent = `CHANGE '${min}' TO A NUMBER SMALLER THAN '${max}'`;
+               messageBox.textContent = `'MIN' MUST BE SMALLER THAN ${new Intl.NumberFormat('en-US').format(max)}`;
                messageBox.classList.add('messageBoxVisible');
           }
           if (container) container.classList.add('containerWarning');
@@ -87,7 +90,7 @@ const randomNumber = () => {
      // If MIN and MAX are equal:
      if (min === max) {
           if (messageBox) {
-               messageBox.textContent =  `'${min}' MUST NOT BE USED TWICE`;
+               messageBox.textContent =  `${new Intl.NumberFormat('en-US').format(min)} MUST NOT BE USED TWICE`;
                messageBox.classList.add('messageBoxVisible');
           }
           if (container) container.classList.add('containerWarning');
@@ -125,3 +128,32 @@ document.addEventListener('DOMContentLoaded', () => {
         numeralDecimalScale: 0,
     });
 });
+
+const tryClick = () => {
+     if (minInput.value.trim() !== "" && maxInput.value.trim() !== "") {
+          generatorButton.click()
+          console.log('Success!');
+     } else {
+          console.log('Failed to click enter.')
+     }
+};
+
+const handleEnter = (e) => {
+     if (e.key === "Enter" || e.key === "NumpadEnter") {
+          e.preventDefault();
+
+          if (e.target === minInput) {
+               maxInput.focus();
+          }
+          else if (e.target === maxInput) {
+               tryClick();
+          }
+     }
+};
+
+minInput.addEventListener("keydown", handleEnter);
+maxInput.addEventListener("keydown", handleEnter);
+
+generatorButton.addEventListener("click", () => {
+     randomNumber();
+})
