@@ -1,54 +1,47 @@
+/* -------- STYLING FOR ALL DEVICES -------- */
+/* ----------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body, html {
+     background-color: #f3faff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
      margin: 0;
      padding: 0;
-     display: grid;
      height: 100%;
-     place-items: center;
      width: 100%;
-}
-body {
-     background-color: #f3faff;
 }
 ::placeholder {
      color: #25a1ff55;
 }
 .container {
+     background-color: white;
+     box-shadow: 0 0 10px #25a1ff5b;
      position: relative;
      display: grid;
-     height: 16em;
-     width: 60em;
-     max-width: 60em;
-     background-color: white;
      place-items: center;
-     box-shadow: 0 0 10px #25a1ff5b;
-     border-radius: 30px;
-     grid-template-rows: 0 35% 0% 80%;
      transition: .2s ease;
 }
-/* --- WARNING/ERROR STATE --- */
 .containerWarning {
-     height: 19em;
      grid-template-rows: 15% 35% 0% 55%;
-     transition: .2s ease;
 }
-/* --- SUCCESS STATE --- */
 .containerUpdate {
-     height: 38em;
      grid-template-rows: 0 25% 50% 25%;
+}
+.containerUpdate, .containerWarning {
      transition: .2s ease;
 }
 #randomButton {
-     position: absolute;
-     place-items: center;
-     bottom: 40px;
      background-color: #25a2ffff;
      border: 2px solid #00000016;
-     padding: 8px 35px;
      border-radius: 10px;
-     font-size: 30px;
      color: white;
+     position: absolute;
+     left: 50%;
+     translate: -50%;
+     bottom: 40px;
      font-family:'Fira Sans Extra Condensed';
      font-weight: 800;
      z-index: 10;
@@ -56,89 +49,268 @@ body {
      transform: scale(1);
 }
 #randomButton:hover {
-     cursor: pointer;
      background-color: white;
-     border-color: #25a2ff20;
      color: #25a2ffff;
+     border-color: #25a2ff20;
+     cursor: pointer;
      transition: .1s ease;
      transform: scale(1.05);
 }
 .randomNumber {
-     position: absolute;
-     place-items: center;
-     bottom: 60px;
-     font-family: 'Smooch Sans';
-     font-weight: 800;
-     font-size: 350px;
-     margin: auto;
      color: #041727ff;
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     font-family: 'Smooch Sans';
      transition: .2s ease;
-     letter-spacing: -6px;
+     font-weight: 800;
 }
 .randomNumber.randomNumberHidden {
      opacity: 0;
      transition: 0s;
 }
-#gridContainerLayout {
-     display: grid;
-     grid-template-columns: 100%;
-     place-items: center;
-     width: 50%;
-     height: fit-content;
-     gap: 50px;
-     place-items: center;
-}
 .numLabel {
      font-family: 'Fira Sans Extra Condensed';
      color: #041727ff;
      font-weight: 800;
-     font-size: 30px;
      user-select: none;
 }
 .min_maxValues {
      position: absolute;
-     top: 35px;
+     left: 50%;
+     transform: translateX(-50%);
      display: grid;
      place-items: center;
      grid-template-columns: 50% 50%;
      transition: .2s ease;
 }
-/* MOVE DOWN THE INPUT CONTAINER WHEN WARNING MESSAGE IS VISIBLE */
-.min_maxValues.min_maxValuesWarning {
-     top: 85px;
-}
 .inputContainer {
      display: grid;
      place-items: center;
-     width: 15em;
-     height: 30px;
      grid-template-columns: 100%;
 }
-#maxNumber, #minNumber {
-     width: 150px;
+#minNumber, #maxNumber {
+     color: #25a2ff;
      border: 2px solid #25a2ff20;
      font-family: 'Smooch Sans';
-     color: #25a2ff;
      font-weight: 700;
-     font-size: 35px;
      text-align: center;
-     border-radius: 10px;
      z-index: 9;
 }
 input:focus {
      outline: 2px solid #25a2ff;
 }
-/* --- WARNING LABEL WHEN ERROR IN JAVASCRIPT CODE --- */
 .messageBox.messageBoxVisible {
      background-color: #da200b;
-     border: 2px solid #00000016;
-     padding: 8px 0px;
-     border-radius: 30px 30px 0 0;
      color: white;
+     position: absolute;
      font-family: 'Smooch Sans';
      transition: .2s ease;
-     font-size: 35px;
      font-weight: 800;
-     width: 99.5%;
      text-align: center;
+}
+
+/* ------------ STYLING FOR PHONES ------------- */
+/* -------------- 360px -> 480px --------------- */
+/* --------------------------------------------- */
+@media only screen and (min-width: 360px) and (max-width: 480px) {
+.container {
+     height: 220px;
+     width: 100vw;
+     max-width: 440px;
+}
+.containerWarning {
+     height: 260px;
+}
+.containerUpdate {
+     height: 360px;
+}
+#randomButton {
+     font-size: 20px;
+     padding: 5px 15px;
+}
+.randomNumber {
+     font-size: 125px;
+     letter-spacing: -4px;
+     bottom: 80px;
+}
+.numLabel {
+     font-size: 20px;
+}
+.min_maxValues {
+     top: 35px;
+}
+.min_maxValues.min_maxValuesWarning {
+     top: 75px;
+}
+.inputContainer {
+     width: 150px;
+}
+#maxNumber, #minNumber {
+     width: 100px;
+     font-size: 26px;
+     border-radius: 10px;
+}
+.messageBox.messageBoxVisible {
+     top: 0;
+     padding: 5px 0px;
+     font-size: 24px;
+     width: inherit;
+}
+}
+
+/* ----- STYLING FOR LARGE PHONES & TABLETS ----- */
+/* --------------- 481px -> 770px --------------- */
+/* ---------------------------------------------- */
+@media only screen and (min-width: 481px) {
+.container {
+     height: 225px;
+     width: 560px;
+     border-radius: 30px;
+}
+.containerWarning {
+     height: 285px;
+}
+.containerUpdate {
+     height: 440px;
+}
+#randomButton {
+     font-size: 24px;
+     padding: 8px 18px;
+}
+.randomNumber {
+     font-size: 180px;
+     letter-spacing: -4px;
+     bottom: 80px;
+}
+.numLabel {
+     font-size: 24px;
+}
+.min_maxValues {
+     top: 35px;
+}
+.min_maxValues.min_maxValuesWarning {
+     top: 75px;
+}
+.inputContainer {
+     width: 220px;
+}
+#maxNumber, #minNumber {
+     width: 100px;
+     font-size: 30px;
+     border-radius: 10px;
+}
+.messageBox.messageBoxVisible {
+     top: 0;
+     width: 100%;
+     border-radius: 30px 30px 0 0;
+     padding: 5px 0px;
+     font-size: 28px;
+}
+}
+
+/*      STYLING FOR TABLET (LANDSCAPE ORIENTATION) 
+                    & SMALL LAPTOPS           
+  ------------------- 771px -> 1024px -------------------       
+  ------------------------------------------------------- */
+@media only screen and (min-width: 771px) {
+.container {
+     height: 240px;
+     width: 800px;
+     border-radius: 30px;
+}
+.containerWarning {
+     height: 285px;
+}
+.containerUpdate {
+     height: 440px;
+}
+#randomButton {
+     font-size: 24px;
+     padding: 8px 18px;
+}
+.randomNumber {
+     font-size: 200px;
+     letter-spacing: -4px;
+     bottom: 75px;
+}
+.numLabel {
+     font-size: 28px;
+}
+.min_maxValues {
+     top: 35px;
+}
+.min_maxValues.min_maxValuesWarning {
+     top: 75px;
+}
+.inputContainer {
+     width: 220px;
+}
+#maxNumber, #minNumber {
+     width: 130px;
+     font-size: 32px;
+     border-radius: 10px;
+}
+.messageBox.messageBoxVisible {
+     top: 0;
+     width: 100%;
+     border-radius: 30px 30px 0 0;
+     padding: 5px 0px;
+     font-size: 28px;
+}
+}
+
+/* ----- STYLING FOR LAPTOPS & DESKTOPS ----- */
+/* ------------- 1025px & ABOVE ------------- */
+/* ------------------------------------------ */
+@media only screen and (min-width: 1025px) {
+.container {
+     height: 256px;
+     width: 960px;
+     max-width: 60em;
+     place-items: center;
+     border-radius: 30px;
+     grid-template-rows: 0 35% 0% 80%;
+}
+.containerWarning {
+     height: 19em;
+}
+.containerUpdate {
+     height: 38em;
+}
+#randomButton {
+     place-items: center;
+     bottom: 40px;
+     padding: 8px 35px;
+     font-size: 30px;
+}
+.randomNumber {
+     place-items: center;
+     bottom: 80px;
+     font-size: 300px;
+     margin: auto;
+     letter-spacing: -4px;
+}
+.numLabel {
+     font-size: 30px;
+}
+.min_maxValues {
+     top: 35px;
+}
+.inputContainer {
+     width: 15em;
+     height: 30px;
+}
+#maxNumber, #minNumber {
+     width: 150px;
+     font-size: 35px;
+     border-radius: 10px;
+}
+.messageBox.messageBoxVisible {
+     border: 2px solid #00000016;
+     padding: 5px 0px;
+     border-radius: 30px 30px 0 0;
+     font-size: 35px;
+     width: inherit;
+}
 }
